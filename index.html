@@ -1,0 +1,2387 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Mina Shenouda — Junior .NET Developer portfolio." />
+<title>Mina Shenouda — Portfolio</title>
+
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#f5f7fb, #08111f);
+  --surface: light-dark(#ffffff, #0e1a2d);
+  --surface-2: light-dark(#f8fafc, #111f34);
+  --text: light-dark(#0f172a, #eef5ff);
+  --muted: light-dark(#64748b, #9fb0c8);
+  --border: light-dark(#e2e8f0, #21324b);
+  --accent: #5b8cff;
+  --accent-2: #16c7a1;
+  --shadow: 0 18px 55px rgba(15, 23, 42, 0.12);
+  --radius: 24px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+      color-scheme: dark;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-root {
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: light-dark(
+    rgba(245, 247, 251, 0.84),
+    rgba(8, 17, 31, 0.84)
+  );
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 20px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: linear-gradient(
+    135deg,
+    var(--accent),
+    var(--accent-2)
+  );
+  box-shadow: 0 8px 24px rgba(91, 140, 255, 0.25);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+/* =========================
+   COVER
+========================= */
+
+.cover {
+  min-height: calc(100vh - 72px);
+  display: grid;
+  place-items: center;
+  padding: 64px 0 74px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(2px);
+}
+
+.cover::before {
+  width: 520px;
+  height: 520px;
+  top: -220px;
+  right: -150px;
+  opacity: 0.16;
+  background: radial-gradient(
+    circle at center,
+    var(--accent),
+    transparent 68%
+  );
+}
+
+.cover::after {
+  width: 420px;
+  height: 420px;
+  bottom: -220px;
+  left: -170px;
+  opacity: 0.12;
+  background: radial-gradient(
+    circle at center,
+    var(--accent-2),
+    transparent 68%
+  );
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 70px;
+  align-items: center;
+}
+
+.cover-copy {
+  max-width: 760px;
+}
+
+.cover-kicker {
+  color: var(--accent-2);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.cover h1 {
+  font-size: clamp(4rem, 9vw, 7.2rem);
+  line-height: 0.88;
+  letter-spacing: -0.07em;
+  margin: 18px 0 20px;
+}
+
+.cover h1 .accent {
+  color: var(--accent);
+}
+
+.cover-title {
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 750;
+}
+
+.cover-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 24px;
+}
+
+.cover-meta span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.cover-side {
+  display: grid;
+  place-items: center;
+}
+
+.avatar-frame {
+  width: 300px;
+  height: 360px;
+  border-radius: 38px;
+  padding: 10px;
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--accent) 65%, transparent),
+    color-mix(in srgb, var(--accent-2) 55%, transparent)
+  );
+  box-shadow: var(--shadow);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(
+    145deg,
+    var(--surface),
+    var(--surface-2)
+  );
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* =========================
+   PROFILE IMAGE
+========================= */
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding: 82px 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+.section-kicker {
+
+  color: var(--accent-2);
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.12em;
+
+  font-size: 1rem;
+
+}
+
+.section h2 {
+  margin: 7px 0 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 620px;
+  margin: 0;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
+
+.story p {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
+.story p:last-of-type {
+  margin-bottom: 0;
+}
+
+.usp-quote {
+  margin: 22px 0 0;
+  padding: 22px 22px 22px 26px;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 18px 18px 0;
+  background: color-mix(
+    in srgb,
+    var(--accent) 7%,
+    var(--surface)
+  );
+}
+
+.usp-quote .label {
+  font-size: 0.74rem;
+  color: var(--accent);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.usp-quote p {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.08rem;
+  font-weight: 650;
+}
+
+.usp-quote .ar {
+  color: var(--muted);
+  font-size: 0.93rem;
+  font-weight: 450;
+  margin-top: 12px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.proof {
+  padding: 16px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+.proof strong {
+  display: block;
+  font-size: 1.2rem;
+}
+
+.proof span {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.about-side {
+  display: grid;
+  gap: 18px;
+}
+
+.quick-card {
+  min-height: 100%;
+}
+
+.quick-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.tag {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* =========================
+   TIMELINE
+========================= */
+
+.timeline {
+  display: grid;
+  gap: 18px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 22px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.timeline-item:last-child {
+  border-bottom: 0;
+}
+
+.timeline-date {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.timeline-item h3 {
+  margin: 0 0 5px;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.skill-group h3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-chip {
+  padding: 10px 12px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 0.9rem;
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.experience-note {
+  color: var(--muted);
+  margin: 0 0 18px;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.service {
+  min-height: 175px;
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: color-mix(
+    in srgb,
+    var(--accent) 12%,
+    transparent
+  );
+  color: var(--accent);
+  font-weight: 900;
+  margin-bottom: 18px;
+}
+
+.service p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 22px;
+}
+
+.filter {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  padding: 9px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filter.active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: transparent;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: start;
+}
+
+.project h3 {
+  margin: 0;
+  font-size: 1.28rem;
+}
+
+.project-type {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.project p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project ul {
+  margin: 0;
+  padding-left: 19px;
+  color: var(--muted);
+}
+
+.project li + li {
+  margin-top: 6px;
+}
+
+.project details {
+  margin-top: auto;
+}
+
+.project summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.project.hidden {
+  display: none;
+}
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievements {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.achievement-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: color-mix(
+    in srgb,
+    var(--accent-2) 12%,
+    transparent
+  );
+  color: var(--accent-2);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.achievement p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* =========================
+   TESTIMONIALS
+========================= */
+
+.testimonial-empty {
+  text-align: center;
+  padding: 42px 28px;
+}
+
+.testimonial-empty .mark {
+  font-size: 2.2rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.testimonial-empty p {
+  max-width: 700px;
+  margin: 12px auto 0;
+  color: var(--muted);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta {
+  padding: 38px;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 12%, var(--surface)),
+    color-mix(in srgb, var(--accent-2) 10%, var(--surface))
+  );
+  border: 1px solid var(--border);
+}
+
+.cta h2 {
+  margin: 0 0 10px;
+}
+
+.cta p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+  margin-top: 22px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(
+    in srgb,
+    var(--accent) 40%,
+    var(--border)
+  );
+}
+
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+  border-color: transparent;
+}
+
+.btn-secondary {
+  background: var(--surface);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  padding: 26px 0 42px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--text);
+  color: var(--bg);
+  padding: 10px 14px;
+  border-radius: 999px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 80;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 950px) {
+  .cover-grid,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cover-side {
+    order: -1;
+  }
+
+  .avatar-frame {
+    width: 220px;
+    height: 260px;
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .achievements {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    width: min(100% - 26px, 1160px);
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .cover {
+    min-height: auto;
+    padding: 56px 0 64px;
+  }
+
+  .cover h1 {
+    font-size: 4rem;
+  }
+
+  .section {
+    padding: 62px 0;
+  }
+
+  .section-head {
+    align-items: start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .projects,
+  .skill-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .cover-side {
+    order: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app-root" id="top">
+
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
+
+  <nav class="nav">
+    <div class="container nav-inner">
+
+      <a class="brand" href="#top">
+        <span class="brand-mark">MS</span>
+        <span>Mina Shenouda</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <!-- =========================
+       COVER
+  ========================== -->
+
+  <header class="cover">
+
+    <div class="container cover-grid">
+
+      <div class="cover-copy">
+
+        <div class="cover-kicker">
+          My Portfolio · 2026
+        </div>
+
+        <h1>
+          Mina <span class="accent">Shenouda.</span>
+        </h1>
+
+        <p class="cover-title">
+          Junior .NET Backend & Full-Stack Developer
+        </p>
+
+        <div class="cover-meta">
+          <span>Cairo, Egypt</span>
+          <span>Benha University</span>
+          <span>Open to Freelance & Internship Work</span>
+        </div>
+
+      </div>
+
+
+      <!-- PROFILE IMAGE -->
+
+      <div class="cover-side" aria-label="Profile image">
+
+        <div class="avatar-frame">
+
+          <div class="avatar">
+
+            <img
+              src="images/Mina7.jpeg"
+              alt="Mina Shenouda"
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- =========================
+         01 ABOUT
+    ========================== -->
+
+    <section class="section" id="about">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+            <div class="section-kicker">
+              01 · About Me
+            </div>
+
+            <h2>
+              From learning code to building useful software.
+            </h2>
+          </div>
+
+          <p class="section-intro">
+            A short story first — then the value I want clients to remember.
+          </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+          <article class="card story">
+
+            <h3>My Story</h3>
+
+            <p>
+              I started my software journey with a foundation in C++
+              and programming fundamentals, then built that foundation
+              through object-oriented programming, data structures,
+              algorithms, SQL, and system analysis.
+            </p>
+
+            <p>
+              As I moved into practical development, my focus became
+              clearer: I enjoy taking a real process, breaking it into
+              entities and business rules, and turning it into working
+              software. That led me toward C#, ASP.NET Core,
+              Entity Framework Core, SQL Server, and LINQ.
+            </p>
+
+            <p>
+              Today, I am strengthening this path through structured
+              training and hands-on projects. My portfolio reflects
+              that progression — from C# console applications to
+              database-driven MVC systems.
+            </p>
+
+
+            <div class="usp-quote">
+
+              <div class="label">
+                My Unique Selling Proposition
+              </div>
+
+              <p>
+                I help small businesses and startups turn everyday
+                workflows into practical, database-driven web
+                applications using C#, ASP.NET Core, Entity Framework
+                Core, and SQL Server.
+              </p>
+
+              <div class="ar">
+                أساعد الشركات الصغيرة والناشئة على تحويل إجراءات العمل
+                اليومية إلى تطبيقات ويب عملية تعتمد على قواعد البيانات
+                باستخدام C# وASP.NET Core وEntity Framework Core وSQL Server.
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <div class="about-side">
+
+            <article class="card quick-card">
+
+              <h3>What I Bring</h3>
+
+              <p>
+                I combine programming fundamentals with an increasingly
+                practical understanding of application development,
+                databases, validation, and business workflows.
+              </p>
+
+              <div class="tags">
+
+                <span class="tag">Problem Solving</span>
+                <span class="tag">OOP</span>
+                <span class="tag">Business Rules</span>
+                <span class="tag">Database Thinking</span>
+                <span class="tag">Validation</span>
+                <span class="tag">Continuous Learning</span>
+
+              </div>
+
+            </article>
+
+
+            <article class="card quick-card">
+
+              <h3>At a Glance</h3>
+
+              <div class="proof-grid">
+
+                <div class="proof">
+                  <strong>2028</strong>
+                  <span>Expected graduation</span>
+                </div>
+
+                <div class="proof">
+                  <strong>3.5</strong>
+                  <span>Current GPA</span>
+                </div>
+
+                <div class="proof">
+                  <strong>.NET</strong>
+                  <span>Current focus</span>
+                </div>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         02 EDUCATION
+    ========================== -->
+
+    <section class="section" id="education">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              02 · Education
+            </div>
+
+            <h2>
+              Education & training that built the foundation.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            Relevant degrees, training, and structured learning are
+            presented before the technical skill set.
+          </p>
+
+        </div>
+
+
+        <div class="card timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2024 — 2028
+            </div>
+
+            <div>
+
+              <h3>
+                Bachelor’s Degree — Benha University
+              </h3>
+
+              <p>
+                Faculty of Computers and Artificial Intelligence.
+                Current GPA: 3.5. Academic foundation in programming,
+                OOP, data structures, algorithms, databases, SQL,
+                statistics, and system analysis.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2026 — Present
+            </div>
+
+            <div>
+
+              <h3>
+                Digital Egypt Pioneers Initiative (DEPI) — Round 5
+              </h3>
+
+              <p>
+                Full Stack .NET Web Developer profile covering C#,
+                SQL Server, Git/GitHub, HTML5, JavaScript, CSS3,
+                .NET Web API, ASP.NET Core MVC, testing, Docker
+                fundamentals, and a capstone project.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              Completed
+            </div>
+
+            <div>
+
+              <h3>
+                ITI — Software Development Training
+              </h3>
+
+              <p>
+                Practical software-development training reinforced
+                through programming, database, and application-building
+                exercises.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         03 SKILLS
+    ========================== -->
+
+    <section class="section" id="skills">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              03 · Skills
+            </div>
+
+            <h2>
+              Tools I use to turn requirements into software.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            Focused on the skills that are actively supported by
+            training and projects.
+          </p>
+
+        </div>
+
+
+        <div class="skill-groups">
+
+          <article class="card skill-group">
+
+            <h3>
+              Backend & .NET
+              <span>01</span>
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill-chip">C#</span>
+              <span class="skill-chip">ASP.NET Core MVC</span>
+              <span class="skill-chip">Entity Framework Core</span>
+              <span class="skill-chip">LINQ</span>
+              <span class="skill-chip">Web API Fundamentals</span>
+              <span class="skill-chip">CRUD</span>
+
+            </div>
+
+          </article>
+
+
+          <article class="card skill-group">
+
+            <h3>
+              Databases & Data
+              <span>02</span>
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill-chip">SQL Server</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">Code First</span>
+              <span class="skill-chip">Database First</span>
+              <span class="skill-chip">ERD</span>
+              <span class="skill-chip">Relational Mapping</span>
+
+            </div>
+
+          </article>
+
+
+          <article class="card skill-group">
+
+            <h3>
+              Programming Foundations
+              <span>03</span>
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill-chip">C++</span>
+              <span class="skill-chip">OOP</span>
+              <span class="skill-chip">Data Structures</span>
+              <span class="skill-chip">Algorithms</span>
+              <span class="skill-chip">Problem Solving</span>
+              <span class="skill-chip">Exception Handling</span>
+
+            </div>
+
+          </article>
+
+
+          <article class="card skill-group">
+
+            <h3>
+              Web & Tools
+              <span>04</span>
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill-chip">HTML5</span>
+              <span class="skill-chip">CSS3</span>
+              <span class="skill-chip">JavaScript Fundamentals</span>
+              <span class="skill-chip">Git & GitHub</span>
+              <span class="skill-chip">Visual Studio</span>
+              <span class="skill-chip">System Analysis</span>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         04 WORK EXPERIENCE
+    ========================== -->
+
+    <section class="section" id="experience">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              04 · Work Experience
+            </div>
+
+            <h2>
+              Experience through hands-on development.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            Presented honestly: my current software experience is
+            primarily project-based rather than commercial client work.
+          </p>
+
+        </div>
+
+
+        <div class="card timeline">
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2026 — Present
+            </div>
+
+            <div>
+
+              <h3>
+                Independent Software Development Projects
+              </h3>
+
+              <p>
+                Built and iterated on C# and ASP.NET Core projects
+                covering business rules, validation, OOP, CRUD
+                workflows, Entity Framework Core, SQL Server,
+                MVC structure, and relational data.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="timeline-date">
+              2026 — Present
+            </div>
+
+            <div>
+
+              <h3>
+                Practical Development Training
+              </h3>
+
+              <p>
+                Applied lessons from ITI and DEPI through progressively
+                more realistic projects, moving from programming
+                exercises to database-driven web applications.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         05 SERVICES
+    ========================== -->
+
+    <section class="section" id="services">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              05 · Offered Services
+            </div>
+
+            <h2>
+              Focused services for practical software work.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            The service list stays close to the technologies and
+            project types I can currently demonstrate.
+          </p>
+
+        </div>
+
+
+        <div class="services">
+
+          <article class="card service">
+
+            <div class="service-icon">
+              01
+            </div>
+
+            <h3>
+              ASP.NET Core MVC Apps
+            </h3>
+
+            <p>
+              Database-backed web applications using models,
+              controllers, Razor views, CRUD workflows, validation,
+              and EF Core.
+            </p>
+
+          </article>
+
+
+          <article class="card service">
+
+            <div class="service-icon">
+              02
+            </div>
+
+            <h3>
+              Business Management Systems
+            </h3>
+
+            <p>
+              Small internal systems for workflows such as clinics,
+              rentals, registrations, inventory, and operations.
+            </p>
+
+          </article>
+
+
+          <article class="card service">
+
+            <div class="service-icon">
+              03
+            </div>
+
+            <h3>
+              C# Applications
+            </h3>
+
+            <p>
+              Object-oriented applications with business rules,
+              validation, exceptions, constructors, properties,
+              and clear responsibilities.
+            </p>
+
+          </article>
+
+
+          <article class="card service">
+
+            <div class="service-icon">
+              04
+            </div>
+
+            <h3>
+              SQL & LINQ
+            </h3>
+
+            <p>
+              Filtering, sorting, joins, grouping, aggregation,
+              and relational data queries for practical business
+              questions.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         06 PROJECTS
+    ========================== -->
+
+    <section class="section" id="projects">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              06 · Projects
+            </div>
+
+            <h2>
+              The work that tells the story.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            Each project represents a step in the journey from
+            programming foundations to practical application development.
+          </p>
+
+        </div>
+
+
+        <div class="project-toolbar">
+
+          <button class="filter active" data-filter="all">
+            All
+          </button>
+
+          <button class="filter" data-filter="dotnet">
+            .NET
+          </button>
+
+          <button class="filter" data-filter="csharp">
+            C#
+          </button>
+
+          <button class="filter" data-filter="analysis">
+            Analysis / DB
+          </button>
+
+        </div>
+
+
+        <div class="projects" id="projectGrid">
+
+
+          <!-- CLINIC -->
+
+          <article class="card project" data-cats="dotnet">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  ASP.NET Core MVC
+                </div>
+
+                <h3>
+                  Clinic Management System MVC
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Main Portfolio Project
+              </span>
+
+            </div>
+
+
+            <p>
+              A database-driven clinic management application built
+              around realistic relationships between departments,
+              doctors, patients, appointments, prescriptions,
+              and medicines.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">C#</span>
+              <span class="tag">ASP.NET Core MVC</span>
+              <span class="tag">EF Core</span>
+              <span class="tag">SQL Server</span>
+              <span class="tag">Code First</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Created MVC models, controllers, and Razor views
+                  for practical workflows.
+                </li>
+
+                <li>
+                  Connected the application to SQL Server through
+                  Entity Framework Core and a dedicated DbContext.
+                </li>
+
+                <li>
+                  Used migrations and implemented CRUD workflows
+                  with related entities.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- CAR RENTAL -->
+
+          <article class="card project" data-cats="csharp">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  C# · Object-Oriented Design
+                </div>
+
+                <h3>
+                  Smart Car Rental System
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Console App
+              </span>
+
+            </div>
+
+
+            <p>
+              A rule-driven rental system covering branch information,
+              users, available fleet, rentals, returns, rental history,
+              customer registration, and business-rule validation.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">C#</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Validation</span>
+              <span class="tag">Exceptions</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Implemented availability checks and rental/return
+                  workflows.
+                </li>
+
+                <li>
+                  Validated customer registration and invalid
+                  operations using exceptions.
+                </li>
+
+                <li>
+                  Included rental history, auto-generated IDs,
+                  and late-return fee calculation.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- CARGO -->
+
+          <article class="card project" data-cats="csharp">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  C# · Encapsulation
+                </div>
+
+                <h3>
+                  Cargo Management System
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Console Prototype
+              </span>
+
+            </div>
+
+
+            <p>
+              A logistics prototype created from a client-style
+              specification to manage package details, destinations,
+              business rules, and shipping-cost calculations.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">C#</span>
+              <span class="tag">Encapsulation</span>
+              <span class="tag">Properties</span>
+              <span class="tag">Constructors</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Modeled destination addresses and cargo items
+                  as domain objects.
+                </li>
+
+                <li>
+                  Protected important data and rejected invalid
+                  weight/base-rate changes.
+                </li>
+
+                <li>
+                  Calculated shipping cost dynamically:
+                  Base Rate + (Weight × 10).
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- BANKING -->
+
+          <article class="card project" data-cats="analysis">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  System Analysis · Team Project
+                </div>
+
+                <h3>
+                  Banking System
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Academic
+              </span>
+
+            </div>
+
+
+            <p>
+              A collaborative banking-system analysis and design
+              project focused on requirements, system structure,
+              documentation, and communication through models.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">ERD</span>
+              <span class="tag">DFD</span>
+              <span class="tag">Planning</span>
+              <span class="tag">Teamwork</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Contributed to requirements analysis and system design.
+                </li>
+
+                <li>
+                  Created ERD and DFD diagrams.
+                </li>
+
+                <li>
+                  Worked collaboratively on planning and project
+                  documentation.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- ATM -->
+
+          <article class="card project" data-cats="analysis">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  Database Design
+                </div>
+
+                <h3>
+                  ATM System — ERD & Relational Mapping
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Data Modeling
+              </span>
+
+            </div>
+
+
+            <p>
+              A conceptual and relational modeling exercise for
+              Customer, Account, ATM, and Transaction entities
+              with keys and relationships.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">ERD</span>
+              <span class="tag">PK / FK</span>
+              <span class="tag">1:N Relationships</span>
+              <span class="tag">Relational Mapping</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Defined core entities and their attributes.
+                </li>
+
+                <li>
+                  Mapped primary-key and foreign-key relationships.
+                </li>
+
+                <li>
+                  Translated the conceptual model into relational tables.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- WEATHER -->
+
+          <article class="card project" data-cats="analysis">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  Academic · Planning
+                </div>
+
+                <h3>
+                  Weather Forecasting System
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                System Project
+              </span>
+
+            </div>
+
+
+            <p>
+              An academic project combining requirements analysis,
+              project planning, resources, risk management, and
+              proposed data-driven forecasting components.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">Requirements</span>
+              <span class="tag">Risk Management</span>
+              <span class="tag">Data Mining</span>
+              <span class="tag">Planning</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Covered current-system study and user requirements.
+                </li>
+
+                <li>
+                  Documented resources, budget allocation, and risks.
+                </li>
+
+                <li>
+                  Included proposed cloud and data-mining concepts
+                  for forecasting.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+
+          <!-- COMPANY DATA -->
+
+          <article class="card project" data-cats="analysis">
+
+            <div class="project-top">
+
+              <div>
+
+                <div class="project-type">
+                  SQL · LINQ Practice
+                </div>
+
+                <h3>
+                  Company Data Query Set
+                </h3>
+
+              </div>
+
+              <span class="tag">
+                Data Queries
+              </span>
+
+            </div>
+
+
+            <p>
+              A practical query set using employees, departments,
+              projects, and dependents to strengthen relational
+              querying and business-question solving.
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">SQL</span>
+              <span class="tag">LINQ</span>
+              <span class="tag">Joins</span>
+              <span class="tag">Group By</span>
+              <span class="tag">Aggregates</span>
+
+            </div>
+
+
+            <details>
+
+              <summary>
+                Case-study highlights
+              </summary>
+
+              <ul>
+
+                <li>
+                  Practiced filtering by department, salary,
+                  location, project, and name patterns.
+                </li>
+
+                <li>
+                  Used joins, grouping, sorting, and aggregate
+                  calculations.
+                </li>
+
+                <li>
+                  Worked with multi-table relationships to answer
+                  business questions.
+                </li>
+
+              </ul>
+
+            </details>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         07 ACHIEVEMENTS
+    ========================== -->
+
+    <section class="section" id="achievements">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              07 · Achievements
+            </div>
+
+            <h2>
+              Milestones worth highlighting.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            Not inflated into awards — just the activities and
+            milestones that genuinely support my development story.
+          </p>
+
+        </div>
+
+
+        <div class="achievements">
+
+          <article class="card achievement">
+
+            <div class="achievement-icon">
+              01
+            </div>
+
+            <h3>
+              ICBC Competition — Level 1
+            </h3>
+
+            <p>
+              Participated in programming and problem-solving
+              challenges, strengthening analytical thinking
+              and coding practice.
+            </p>
+
+          </article>
+
+
+          <article class="card achievement">
+
+            <div class="achievement-icon">
+              02
+            </div>
+
+            <h3>
+              DEPI — Round 5
+            </h3>
+
+            <p>
+              Joined a structured Full Stack .NET learning path
+              focused on practical web development and
+              portfolio-ready project work.
+            </p>
+
+          </article>
+
+
+          <article class="card achievement">
+
+            <div class="achievement-icon">
+              03
+            </div>
+
+            <h3>
+              From C++ to .NET
+            </h3>
+
+            <p>
+              Built a practical progression from programming
+              foundations to C# applications, EF Core, SQL Server,
+              and ASP.NET Core MVC projects.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         08 TESTIMONIALS
+    ========================== -->
+
+    <section class="section" id="testimonials">
+
+      <div class="container">
+
+        <div class="section-head">
+
+          <div>
+
+            <div class="section-kicker">
+              08 · Testimonials
+            </div>
+
+            <h2>
+              Trust should come from real people.
+            </h2>
+
+          </div>
+
+          <p class="section-intro">
+            This section is intentionally kept clean until there
+            are genuine client or mentor testimonials to publish.
+          </p>
+
+        </div>
+
+
+        <div class="card testimonial-empty">
+
+          <div class="mark">
+            “
+          </div>
+
+          <p>
+            I’m building my freelance experience now. Real
+            testimonials will be added here as I complete client
+            projects and receive permission to publish their feedback.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         09 CTA + CONTACT
+    ========================== -->
+
+    <section class="section" id="contact">
+
+      <div class="container">
+
+        <div class="cta">
+
+          <div class="section-kicker">
+            09 · Call to Action & Contact
+          </div>
+
+          <h2>
+            Let’s turn a workflow into software.
+          </h2>
+
+          <p>
+            I’m open to freelance projects, internships,
+            collaborative development, and practical software
+            opportunities where I can contribute and continue growing.
+          </p>
+
+
+          <div class="contact-row">
+
+            <a
+              class="btn btn-primary"
+              href="mailto:menashenoudamena5@gmail.com?subject=Project%20Inquiry%20for%20Mina%20Shenouda"
+            >
+              Email Me
+            </a>
+
+
+            <a
+              class="btn btn-secondary"
+              href="https://www.linkedin.com/in/mina-shenouda-21918238a"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+
+            <button
+              class="btn btn-secondary"
+              id="copyEmail"
+            >
+              Copy Email
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <footer class="footer">
+
+          <span>
+            © 2026 Mina Shenouda
+          </span>
+
+          <span>
+            Junior .NET Backend & Full-Stack Developer
+          </span>
+
+        </footer>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+<div class="toast" id="toast">
+  Email copied.
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+const filters = document.querySelectorAll('.filter');
+const projects = document.querySelectorAll('.project');
+
+filters.forEach(btn => {
+
+  btn.addEventListener('click', () => {
+
+    filters.forEach(x =>
+      x.classList.remove('active')
+    );
+
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    projects.forEach(project => {
+
+      const cats =
+        project.dataset.cats.split(' ');
+
+      project.classList.toggle(
+        'hidden',
+        filter !== 'all' &&
+        !cats.includes(filter)
+      );
+
+    });
+
+  });
+
+});
+
+
+const copyButton =
+  document.getElementById('copyEmail');
+
+const toast =
+  document.getElementById('toast');
+
+
+copyButton.addEventListener(
+  'click',
+  async () => {
+
+    try {
+
+      await navigator.clipboard.writeText(
+        'menashenoudamena5@gmail.com'
+      );
+
+      toast.classList.add('show');
+
+      setTimeout(
+        () => toast.classList.remove('show'),
+        1700
+      );
+
+    } catch {
+
+      window.location.href =
+        'mailto:menashenoudamena5@gmail.com';
+
+    }
+
+  }
+);
+
+</script>
+
+</body>
+</html>
